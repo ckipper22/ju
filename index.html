@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Convite — Proza Longa & Proza Louca</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#ff6b6b;--accent2:#f59e0b;--text:#e6eef8}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: radial-gradient(1000px 600px at 10% 10%, rgba(245,158,11,0.08), transparent), linear-gradient(180deg,#071025 0%, #081426 60%); color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));width:100%;max-width:920px;border-radius:18px;padding:26px;box-shadow:0 10px 30px rgba(2,6,23,0.6);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+    .header{display:flex;gap:18px;align-items:center}
+    .badge{background:linear-gradient(90deg,var(--accent),var(--accent2));padding:10px 14px;border-radius:12px;font-weight:700;letter-spacing:0.6px}
+    h1{margin:0;font-size:clamp(20px,3.4vw,34px)}
+    p.lead{margin:8px 0 0;color:rgba(230,238,248,0.9)}
+    .content{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-top:18px}
+    @media(max-width:880px){.content{grid-template-columns:1fr}}
+    .left{padding-right:8px}
+    .invitation-text{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:18px;border-radius:12px;border:1px dashed rgba(255,255,255,0.03)}
+    .line{margin:0 0 12px;line-height:1.45}
+    .fun-line{font-weight:700;color:var(--accent)}
+    .right{display:flex;flex-direction:column;gap:14px}
+    .card-small{background:rgba(255,255,255,0.02);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .cta{display:flex;gap:10px;align-items:center}
+    .btn{padding:10px 12px;border-radius:10px;font-weight:600;border:0;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#ff8a80);color:#081426}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+    .confetti{position:absolute;left:-10%;top:-10%;width:140%;height:140%;pointer-events:none}
+    .footer{margin-top:14px;font-size:13px;color:rgba(230,238,248,0.7)}
+    .sparkle{display:inline-block;transform-origin:center;animation:spin 6s linear infinite}
+    @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+    .marquee{overflow:hidden;white-space:nowrap}
+    .marquee span{display:inline-block;padding-right:30px;animation:marq 12s linear infinite}
+    @keyframes marq{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+    /* Confetti pieces */
+    .confetti div{position:absolute;width:10px;height:16px;border-radius:2px;opacity:0.95;animation:fall 4s linear infinite}
+    @keyframes fall{0%{transform:translateY(-120vh) rotate(0) }100%{transform:translateY(120vh) rotate(720deg)}}
+    .note{font-size:13px;color:rgba(230,238,248,0.75)}
+    .editable{background:rgba(255,255,255,0.02);padding:8px;border-radius:8px;border:1px dashed rgba(255,255,255,0.03)}
+    .who{font-weight:800;color:#9be7ff}
+    footer.small{display:flex;justify-content:space-between;align-items:center;margin-top:16px;color:rgba(230,238,248,0.6);font-size:12px}
+  </style>
+</head>
+<body>
+  <div class="card" role="main">
+    <svg class="confetti" aria-hidden>
+      <!-- generate confetti pieces via JS fallback -->
+    </svg>
+    <div class="header">
+      <div class="badge">PROZA</div>
+      <div>
+        <h1>Juliana Lindner — você está oficialmente convidada!</h1>
+        <p class="lead">Uma proza longa, uma proza louca e um bocado de risadas — só falta você.</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="left">
+        <div class="invitation-text">
+          <p class="line">Oi <span class="who">Juliana</span> — prepare-se para um encontro de prosa onde as histórias esticam, encolhem, tropeçam e dançam. É uma mistura de conversa longa com pitadas de 'proza louca': quem chegar cedo ganha troféu imaginário.</p>
+          <p class="line fun-line">Quando: durante <strong>dezembro</strong> — escolhe o dia que mais combinar com seu humor (ou deixa comigo que eu escolho um dia épico).</p>
+          <p class="line">Hora: <span class="editable" id="hora">às 20:00 (ajuste se precisar)</span></p>
+          <p class="line">Local: <span class="editable" id="local">no lugar mais aconchegante que encontrarmos — física ou virtual</span></p>
+          <p class="line">Traje: confortável. Traga um copo, uma história e disposição pra rir.</p>
+          <p class="line">Programação: prosa longa, pausas dramáticas, risadas descontroladas, café e, se der, bolo.</p>
+          <p class="line">Observação: prosa louca tem regras — não há regras.</p>
+        </div>
+
+        <div class="footer">
+          <div class="marquee" aria-hidden><span>💫 PROZA LONGA • PROZA LOUCA • CONVITE ESPECIAL • DEZEMBRO •</span></div>
+        </div>
+      </div>
+
+      <aside class="right">
+        <div class="card-small">
+          <strong>Confirme sua presença</strong>
+          <p class="note">Clique no botão abaixo para abrir seu cliente de e‑mail e confirmar. Edite o destinatário caso queira enviar de outra conta.</p>
+          <div class="cta" style="margin-top:8px">
+            <button class="btn btn-primary" id="rsvp">Confirmar presença</button>
+            <button class="btn btn-ghost" id="addcal">Baixar evento (.ics)</button>
+          </div>
+        </div>
+
+        <div class="card-small">
+          <strong>Toques finais</strong>
+          <p class="note">Quer que eu altere o texto, coloque uma data fixa ou personalize com cores e fotos? Basta editar o HTML antes de subir no GitHub.</p>
+          <p style="margin-top:8px;font-size:13px">Sugestão rápida: troque a frase "escolhe o dia" por uma data definida se for enviar várias vezes.</p>
+        </div>
+
+      </aside>
+    </div>
+
+    <footer class="small">
+      <div>Feito com carinho e um pouco de desordem criativa.</div>
+      <div>— Seu conviter particular</div>
+    </footer>
+  </div>
+
+  <script>
+    // Small confetti generator
+    const confettiContainer = document.querySelector('.confetti');
+    const colors = ['#ff6b6b','#f59e0b','#9be7ff','#6ee7b7','#c084fc'];
+    for(let i=0;i<40;i++){
+      const el = document.createElement('div');
+      el.style.left = Math.random()*100 + '%';
+      el.style.top = Math.random()*-40 + 'vh';
+      el.style.transform = 'rotate('+ (Math.random()*360) +'deg)';
+      el.style.background = colors[Math.floor(Math.random()*colors.length)];
+      el.style.width = (6+Math.random()*12) + 'px';
+      el.style.height = (8+Math.random()*18) + 'px';
+      el.style.opacity = (0.7+Math.random()*0.3);
+      el.style.animationDelay = (Math.random()*3) + 's';
+      el.style.left = (Math.random()*120 - 10) + '%';
+      confettiContainer.appendChild(el);
+    }
+
+    // RSVP: opens mail client (user can edit recipient)
+    document.getElementById('rsvp').addEventListener('click', ()=>{
+      const subject = encodeURIComponent('Confirmo presença - Proza Longa & Proza Louca');
+      const body = encodeURIComponent('Oi Juliana!\n\nConfirmo minha presença na proza em dezembro. Me avise o dia e o local quando definir!\n\nBeijos e abraços,');
+      // opens mail client — user should replace the email in the href if desired
+      window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
+    });
+
+    // Generate simple .ics event and download
+    document.getElementById('addcal').addEventListener('click', ()=>{
+      const title = 'Proza Longa & Proza Louca';
+      const start = new Date();
+      // default: next available friday at 20:00 in December if not changed
+      const year = new Date().getFullYear();
+      let decDate = new Date(year,11,15,20,0,0); // Dec 15 at 20:00 — user can edit in file
+      const dtStart = decDate.toISOString().replace(/-|:|\.\d+/g,'');
+      const dtEnd = new Date(decDate.getTime() + 2*60*60*1000).toISOString().replace(/-|:|\.\d+/g,'');
+      const ics = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Proza Invitation//pt-BR',
+        'BEGIN:VEVENT',
+        'UID:' + Date.now() + '@proza.local',
+        'DTSTAMP:' + dtStart,
+        'DTSTART:' + dtStart,
+        'DTEND:' + dtEnd,
+        'SUMMARY:' + title,
+        'DESCRIPTION:Proza Longa & Proza Louca para Juliana Lindner',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+      const blob = new Blob([ics],{type:'text/calendar'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'proza-longa-proza-louca.ics';
+      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    });
+
+  </script>
+</body>
+</html>
